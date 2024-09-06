@@ -3,17 +3,17 @@
 
 ## Project Name: Cath Math
 
-###Elevator Pitch:
+### Elevator Pitch:
 
-*Stuff
+* Stuff
 	
-###Complexity and Components:
+### Complexity and Components:
 
-###Predicted Architecture:
+### Predicted Architecture:
 
-###Tech Stack and Frameworks:
+### Tech Stack and Frameworks:
 
-###Methodology and Lifecycle:
+### Methodology and Lifecycle:
 
 		
 	
