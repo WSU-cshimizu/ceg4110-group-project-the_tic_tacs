@@ -20,6 +20,9 @@
 ### Predicted Architecture:
 
 * The Android app will function as a stand alone piece of software on Android devices. No backend will be necessary.
+* We have never used the tech stack listed below or build an app like this. Based on zero experience, our predicted architecture will focus on availability, reliability, and security. To this end we will attempt to use SOLID software architecture principles. 
+	* Single Responsibility: One objective for each service component.
+
 
 ### Tech Stack and Frameworks:
 
