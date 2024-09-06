@@ -4,7 +4,8 @@
 ## Project Name: Cath Math
 
 ##Elevator Pitch:
-	
+
+*Stuff
 	
 ##Complexity and Components:
 
