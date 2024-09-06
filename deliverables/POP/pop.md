@@ -9,33 +9,24 @@
 	
 ### Complexity and Components:
 
-* Stuff
+* It will have a UI, math question mode, math drill mode, calculator mode, XP and points to spend on avatars (primarily cats), and reward correct answers with animal facts (especially cat facts). 
 
 ### Predicted Architecture:
 
-* Stuff
+* The Andriod app will function as a stand alone piece of software on Andriod devices. No backend will be necessary.
 
 ### Tech Stack and Frameworks:
 
-* Stuff
+* We will use Andriod Studio as our IDE and testing software. 
+* React Native will be the "glue" in our tech stack.
+* Java Script and Java will be the primary coding languages.
+* These components will be subject to change as the project iterates through the lifecycle.
 
 ### Methodology and Lifecycle:
 
-* Stuff
-
-		
-	
-* _N_ "things of complexity", where _N_ is number of students in the group.
-  * Describe each component, briefly.
-* How do the components fit together (i.e., predicted architecture)?
-    * Prompt: "We think, based on not touching it yet, we'll do..."
-* What language or technology stack or framework will be used?
-    * Include a response to: "why are you picking the tech stack that you are?"
-* What is the predicted life cycle/methodology that you will follow?
-
-
-
-
-
+* Scrum administered via OpenProject or Taiga. 
+* Jessica Venema will be the Scrum master.
+* Sprints will be a weekly event.
+* We will have standups at least twice a week.
 
 
