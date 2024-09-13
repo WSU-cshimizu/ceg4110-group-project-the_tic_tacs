@@ -31,7 +31,7 @@
 * Design Specification: 
   >Friday, 18 October 2024
 * Milestones (i.e., "Check-ins"): 
-  >All on Thursday; 8/17/24, 10/31/24, 11/14/24, and 11/28/24
+  >All on Thursday: 8/17/24, 10/31/24, 11/14/24, and 11/28/24
 * Gantt Chart
   - ![Gantt Chart](./Cat_Math.pdf.png/)
 
