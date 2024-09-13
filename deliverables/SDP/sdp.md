@@ -1,7 +1,7 @@
 # Software Development Plan: The Tic-Tacs
 
 ## Requirements
-* **Administrative**
+### **Administrative**
   * Meeting Location(s) and Times: 
   
    * In Class Tuesday and Thursday for 30 minutes 
