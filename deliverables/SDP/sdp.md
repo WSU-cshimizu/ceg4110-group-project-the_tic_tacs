@@ -33,6 +33,6 @@
 * Milestones (i.e., "Check-ins"): 
 >All on Friday; 8/18/24, 11/1/24, 11/15/24, and 11/29/24
 * Gantt Chart
-  * ![Gantt Chart](./ecb.bmp/)
+  - ![Gantt Chart](./Cat_Math_Gantt.pdf/)
 
 
