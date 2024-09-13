@@ -30,15 +30,4 @@
 * Milestones (i.e., "Check-ins"): All on Friday; 8/18/24, 11/1/24, 11/15/24, and 11/29/24
 * Gannt Chart
 
-## Submission Details
-This will be submitted via your GitHub repository in your `deliverables` directory.
 
-## Rubric
-| Points | Metric                                            |
-| ------ | ------------------------------------------------- |
-| 2      | Does it look nice? (Presentation, Gannt Chart)    |
-|        | Does it contain the information that's solicited? |
-| 2      | &#9; Administrative                               |
-| 4      | &#9; Timeline                                     |
-| 2      | Justify CP and PM choices.                        |
-| **10** | **Total**                                         |
