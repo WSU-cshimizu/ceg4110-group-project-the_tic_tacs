@@ -16,7 +16,7 @@
   * Project Management:
    * 
    
-* **SDLC Details**
+### **SDLC Details**
 * Timeline (Dates for)
   * MVSs
   * Requirement Specification
