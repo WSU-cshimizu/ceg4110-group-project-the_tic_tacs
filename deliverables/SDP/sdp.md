@@ -24,10 +24,14 @@
    
 ### **SDLC Details: Timeline**
 
-* MVSs: Friday, 4 October 2024
-* Requirement Specification: Friday, 11 October 2024
-* Design Specification: Friday, 18 October 2024
-* Milestones (i.e., "Check-ins"): All on Friday; 8/18/24, 11/1/24, 11/15/24, and 11/29/24
+* MVSs: 
+>Friday, 4 October 2024
+* Requirement Specification: 
+>Friday, 11 October 2024
+* Design Specification: 
+>Friday, 18 October 2024
+* Milestones (i.e., "Check-ins"): 
+>All on Friday; 8/18/24, 11/1/24, 11/15/24, and 11/29/24
 * Gannt Chart
 
 
