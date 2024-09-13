@@ -15,7 +15,8 @@
    >
    > The current meeting concludes with a brief summary of the discussion, agreements, individual deliverables, team deliverables, and points to cover in the next meeting. This information is posted to the team Discord and documented in the meeting minutes on the team repo.
 
-* The purpose of meeting at the times and locations is to work with the schedules and course loads for five team members. Due to the location of the team members it was determined that meeting virtually on Discord would be the most efficient use of time. Likewise, the redundancies of the Communication Plan provides all team members with the ability to review a missed meeting or check the specifications for personal responsibilities. 
+* Communication Plan Justification:
+   > The purpose of meeting at the times and locations is to work with the schedules and course loads for five team members. Due to the location of the team members it was determined that meeting virtually on Discord would be the most efficient use of time. Likewise, the redundancies of the Communication Plan provides all team members with the ability to review a missed meeting or check the specifications for personal responsibilities. 
 
 * Project Management:
    > 
