@@ -3,9 +3,9 @@
 ## Requirements
 ### **Administrative**
   * Meeting Location(s) and Times: 
-   > In Class Tuesday and Thursday for 30 minutes 
+   > In Class: Tuesday and Thursday for 30 minutes 
    >
-   > Virtually on Discord Sunday at 6pm for 1 hour and as needed
+   > Virtually on Discord: Sunday at 6pm for 1 hour and as needed
   * Communication Plan (Meeting Structure & Cadence): 
    * Meeting agenda is posted to Discord before each meeting
    * Prior individual deliverables are communicated in person when available and on Discord 
