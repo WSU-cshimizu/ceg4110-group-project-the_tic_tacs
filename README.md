@@ -1,8 +1,17 @@
 # group-project
 
-Jessica Venema was here.
+Jessica Venema 
+ - Undergrad, Senior
 
-Name:Abit Kumar Mahato
-     Freshman international graduate student.
+<<<<<<< HEAD
+Abit Kumar Mahato
+    - International Grad Student, First Semester
 
 
+=======
+Ethan Schultz
+ - Undergrad, Senior
+ 
+Liliane Owens
+ - undergrad, senior
+>>>>>>> e8f40ca3730f153013b756644241cdf8eea7c415
