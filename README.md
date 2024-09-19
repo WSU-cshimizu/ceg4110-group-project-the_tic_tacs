@@ -1,8 +1,10 @@
 # group-project
 
-Jessica Venema was here.
+Jessica Venema 
+ - Undergrad, Senior
 
 Ethan Schultz
  - Undergrad, Senior
+ 
 Liliane Owens
--undergrad, senior
+ - undergrad, senior
