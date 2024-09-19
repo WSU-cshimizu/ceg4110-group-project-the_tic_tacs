@@ -3,7 +3,7 @@
 Jessica Venema 
  - Undergrad, Senior
 
-<<<<<<< HEAD
+----------
 Abit Kumar Mahato
     - International Grad Student, First Semester
 
