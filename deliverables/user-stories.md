@@ -2,7 +2,7 @@
 
 ## Overview:
 
-The system will be both fun an educational for users of a younger demographic. Designed for children to practice math problems while earning experience points (XP). As they solve problems correctly they will be able to unlock avatars and will be rewared with different cat facts along the way as well.
+The Andriod application will be both fun and educational for users of a younger demographic. It is designed for children to practice math problems while earning experience points (XP). As they solve problems correctly they will be rewarded with XP, the ability to unlock special avatars, and learn animal science facts with an emphasis on cats. 
 
 ### User-Stories
 
@@ -11,6 +11,12 @@ The system will be both fun an educational for users of a younger demographic. D
 - As a child user, I want to receive interesting animal facts about cats after answering questions correctly which will help me to earn rewards along with learning.
 
 - As an end user, I want to unlock and collect avatars so I have a sense of achivement and can showcase them to my friends and family. 
+
+- 
+
+- 
+
+- 
 
 - 
 
