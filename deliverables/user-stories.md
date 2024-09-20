@@ -28,21 +28,21 @@ The Andriod application will be both fun and educational for users of a younger 
 
 ### Developer stories
 
-- As a developer, I will want to be able to efficiently manage and access user data, to make sure that the leveling up and score bonus functionalities always work. The math problems should also be quickly generated after the current one has been answered, as slow generation will hamper user engagement. 
+- As a UI/UX developer, I want to understand how to design an engaging user interface for a childrens math game so I can create an intuitive, fun, and educational experience that keeps young users motivated.
+
+- As a UI developer, I want to create a home screen with easily navigatable menus and buttonns. Simplicity in this design will ensure that the end user does not discard the educational game for something easier to interact with.
+
+- As a developer, I want to design educational games that will support children's classroom math work. I will need to research current classroom mathematics activities and create an app that can compliment that activity. The games I create must be exciting and fun for the end user.
 
 - As a developer, I want to implement a calculator mode that allows users to perform basic calculations like addition, subtraction , multiplication and division.
 
-- As a UI/UX developer, I want to understand how to design an engaging user interface for a childrens math game so I can create an intuitive, fun, and educational experience that keeps young users motivated.
-
-- 
-
-- 
+- As a developer, I will want to be able to efficiently manage and access user data, to make sure that the leveling up and score bonus functionalities always work. The math problems should also be quickly generated after the current one has been answered, as slow generation will hamper user engagement. 
 
 ### Testing stories
 
-- As a tester , I want to validate that math question mode correctly assesses answers and provides XP and cat facts upon correct responses.
+- As a tester, I want to validate that math question mode correctly assesses answers and provides XP and cat facts upon correct responses.
 
-- 
+- As a tester, I want to validate that mode functionality correctly changes from the home screen to the calculator mode, the math problem mode, and the math drill mode. 
 
 ### Equipment:
 
