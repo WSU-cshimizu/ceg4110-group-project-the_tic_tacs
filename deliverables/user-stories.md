@@ -12,19 +12,17 @@ The Android application will be both fun and educational for users of a younger 
 
 - As a user, I want to use the math drill mode to practice rapid addition and subtraction on a timer.
 
-- 
+- As a user, I want to earn experience points (XP) to experience both an achievement and receive a reward.
 
-- 
+- As a user, I want to look at the home screen and understand what buttons take me to each game mode without confusion.
 
-- 
+- As a user, I want to use the menu bar to easily see my XP and avatar.
 
-- 
+- As a user, I want to receive my animal fact in an easily closed pop-up screen.
 
-- 
+- As a user, I want to review my mistakes and learn how to correctly answer the math problem.
 
-- 
-
-- 
+- As a user, I want to open the app and feel excited to play the games.
 
 - As a user, I want to receive interesting animal facts about cats after answering questions correctly which will help me to earn rewards along with learning.
 
