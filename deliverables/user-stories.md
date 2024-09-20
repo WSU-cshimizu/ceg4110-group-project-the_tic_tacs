@@ -6,7 +6,11 @@ The Android application will be both fun and educational for users of a younger 
 
 ### User-Stories
 
-- Users will want a game play loop that is not too challenging as to elicit a lot of frustration, but to have enough stakes that users are engaged. An important rule is that answering correctly in a certain amount of time will increase the amount of score that the player gets. However, to make sure that the game is not too punishing, there will not be a time limit on answers, and players can take their time if need be. 
+- As a user, I want to use the calculator mode to help me check my homework questions.
+
+- As a user, I want to use the math problems mode to teach me addition, subtraction, multiplication, and division.
+
+- As a user, I want to use the math drill mode to practice rapid addition and subtraction on a timer.
 
 - As a child user, I want to receive interesting animal facts about cats after answering questions correctly which will help me to earn rewards along with learning.
 
