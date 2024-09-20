@@ -2,15 +2,15 @@
 
 ## Overview:
 
-The Andriod application will be both fun and educational for users of a younger demographic. It is designed for children to practice math problems while earning experience points (XP). As they solve problems correctly they will be rewarded with XP, the ability to unlock special avatars, and learn animal science facts with an emphasis on cats. 
+The Android application will be both fun and educational for users of a younger demographic. It is designed for children to practice math problems while earning experience points (XP). As they solve problems correctly they will be rewarded with XP, the ability to unlock special avatars, and learn animal science facts with an emphasis on cats. 
 
 ### User-Stories
 
-- Users will want a gameplay loop that is not too challenging as to elicit a lot of frustration, but to have enough stakes that users are engaged. An important rule is that answering correctly in a certain amount of time will increase the amount of score that the player gets. However, to make sure that the game is not too punishing, there will not be a time limit on answers, and players can take their time if need be. 
+- Users will want a game play loop that is not too challenging as to elicit a lot of frustration, but to have enough stakes that users are engaged. An important rule is that answering correctly in a certain amount of time will increase the amount of score that the player gets. However, to make sure that the game is not too punishing, there will not be a time limit on answers, and players can take their time if need be. 
 
 - As a child user, I want to receive interesting animal facts about cats after answering questions correctly which will help me to earn rewards along with learning.
 
-- As an end user, I want to unlock and collect avatars so I have a sense of achivement and can showcase them to my friends and family. 
+- As an end user, I want to unlock and collect avatars so I have a sense of achievement and can showcase them to my friends and family. 
 
 - 
 
@@ -28,9 +28,9 @@ The Andriod application will be both fun and educational for users of a younger 
 
 ### Developer stories
 
-- As a UI/UX developer, I want to understand how to design an engaging user interface for a childrens math game so I can create an intuitive, fun, and educational experience that keeps young users motivated.
+- As a UI/UX developer, I want to understand how to design an engaging user interface for a children's math game so I can create an intuitive, fun, and educational experience that keeps young users motivated.
 
-- As a UI developer, I want to create a home screen with easily navigatable menus and buttonns. Simplicity in this design will ensure that the end user does not discard the educational game for something easier to interact with.
+- As a UI developer, I want to create a home screen with easily navigable menus and buttons. Simplicity in this design will ensure that the end user does not discard the educational game for something easier to interact with.
 
 - As a developer, I want to design educational games that will support children's classroom math work. I will need to research current classroom mathematics activities and create an app that can compliment that activity. The games I create must be exciting and fun for the end user.
 
