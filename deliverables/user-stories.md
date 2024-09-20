@@ -26,7 +26,7 @@ The Android application will be both fun and educational for users of a younger 
 
 - As a user, I want to receive interesting animal facts about cats after answering questions correctly which will help me to earn rewards along with learning.
 
-- As an user, I want to unlock and collect avatars so I have a sense of achievement and can showcase them to my friends and family. 
+- As a user, I want to unlock and collect avatars so I have a sense of achievement and can showcase them to my friends and family. 
 
 ### Developer stories
 
