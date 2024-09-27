@@ -9,7 +9,7 @@
 * What determines how projects are prioritized? This is a complicated questions and it often boils down to the expected return on investment. Are the costs and man hours estimated to be worth it to the company and the stakeholders in a time frame that makes sense for the company in the current market environment? Not an easy question to answer. 
 
 ## Lessons Learned
-* Our project and MVS must reflect some sort of prioritization that can be deafened. 
+* Our project and MVS must reflect some sort of prioritization that can be defended. 
 
 * Scrum may not have been the right choice for our development team. Kanban might have been a better fit.
 
