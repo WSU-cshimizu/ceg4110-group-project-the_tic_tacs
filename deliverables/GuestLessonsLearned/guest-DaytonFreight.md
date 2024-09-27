@@ -4,12 +4,12 @@
 * **Date:** Thursday, 26 September 2024
 
 ## Pertinent Questions
-* How is communication accomplished accross diverse teams with remote developers? They use MS Teams and specially designed confereence rooms to connect the necessary team members to each other in a manner that facilitates quick and effective communication. One-on-one chats are often done over video.
+* How is communication accomplished across diverse teams with remote developers? They use MS Teams and specially designed conference rooms to connect the necessary team members to each other in a manner that facilitates quick and effective communication. One-on-one chats are often done over video.
 
-* What determines how projects are prioritized? This is a complicated questions and it often boils down to the expected return on investment. Are the costs and man hours estimated to be worth it to the company and the stakeholders in a timeframe that makes sense for the company in the current market environment? Not an easy question to answer. 
+* What determines how projects are prioritized? This is a complicated questions and it often boils down to the expected return on investment. Are the costs and man hours estimated to be worth it to the company and the stakeholders in a time frame that makes sense for the company in the current market environment? Not an easy question to answer. 
 
 ## Lessons Learned
-* Our project and MVS must reflect some sort of prioritization that can be defened. 
+* Our project and MVS must reflect some sort of prioritization that can be deafened. 
 
 * Scrum may not have been the right choice for our development team. Kanban might have been a better fit.
 
