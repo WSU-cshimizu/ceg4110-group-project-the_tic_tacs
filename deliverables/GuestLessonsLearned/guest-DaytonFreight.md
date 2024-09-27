@@ -15,6 +15,6 @@
 
 * How should our team organize itself during the development process? At this point I think 2 teams of 2 people with the swing person might be ideal. Time will tell.
 
-##Difference between definitions taught in class and provided by the Guest Lecturer
+## Difference between definitions taught in class and provided by the Guest Lecturer
 
 * The major point that stood out to me as a difference was that the class definition of a User Story has been taught as a thing that a user will do to achieve an objective, like press a specific button on an app to access the user profile information. Tim explained that for Dayton Freight a User Story defines a specific piece of work that must be pushed to production immediately after it is completed. 
