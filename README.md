@@ -1,4 +1,4 @@
-# group-project
+# The Tic-Tacs
 
 Jessica Venema 
  - Undergrad, Senior
@@ -16,8 +16,11 @@ Ben Hawk
 Ethan Schultz
  - Undergrad, Senior
    
- ----------
+----------
  
 Liliane Owens
  - undergrad, senior
 
+# Navigation:
+
+* The Deliverables folder contains obviously named folder which contain the required documents and their assets.
