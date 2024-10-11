@@ -1,33 +1,28 @@
-# Minimum Requirements:
+# Minimum Viable Specification for Cat Math:
 
-## 1. Base Functionality
-   ### 1.1 Calculator
-   -  The calculator is the most important function to get working, as every other feature revolves around it.
-   -  The calculator shall perform basic operations involving addition, subtraction, multiplication, and division.
-   -  The calculator shall correctly validate the user's answers in Math Drill Mode.
-## 2. User Experience
-   ### 2.1 UI
-   -  The user interface shall be intuitive to navigate.
-   -  The user interface will be appealing to look at.
-   -  The user interface will have obvious cues as to what each button does.
-   -  The user interface shall display the user's current level and selected avatar.
-   ### 2.2 Gameplay
-   -  The user will be able to select between two modes: Math Drill Mode and Calculator Mode.
-   -  The user will be engaged and happy to learn about math.
-   -  The user will be able to view the correct answer if they answer incorrectly.
-   ### 2.3 Levels and Avatar
-   -  The user's experience points will increase when they answer problems correctly.
-   -  The user's level will increase when the XP bar is full.
-   -  The XP needed to level up will increase for each level.
-   -  Leveling up will allow the user to unlock a new avatar to add to their collection.
-   -  Answering correctly will display the user's avatar and a fun fact about cats.
-## 3. Memory
-  ### 3.1 User Stats
-   -  The user's current level will be stored in memory and attached to their Google Play account.
-   -  The user's avatar will be stored in memory and will stay the same after the app is closed.
-   -  The user's experience points will not reset after the app is closed.
-   -  The user's collection of avatars should not reset after the app is closed. 
-  
-     
-       
-     
+## User Experience:
+* As a user, I want to open the app and feel excited to play the games.
+  - 1.1: The user interface shall be appealing to look at.
+  - 1.2: The user interface shall be intuitive to navigate.
+
+* As a user, I want to earn experience points (XP) to experience both an achievement and receive a reward.
+  - 2.1: The user's experience points shall increase when they answer problems correctly.
+  - 2.2: The user shall be able to change avatars when certain XP threshholds are met.
+
+* As a user, I want to use the math drill mode to teach me addition and subtraction.
+  - 3.1: The math drill mode shall operate on a 1 minute timer for addition or subtraction problems.
+
+* As a user, I want to use the calculator mode to help me check my homework questions.
+  - 4.1: The calculator shall perform the basic math operations of addition and subtraction.
+
+## User Interface:
+* As a user, I want to look at the home screen and understand what buttons take me to each game mode without confusion.
+  - 5.1: The user shall be able to select between two modes: Math Drill Mode and Calculator Mode.
+
+* As a user, I want to use the menu bar to easily see my XP and avatar.
+  - 6.1: The user's experience points will not reset after the app is closed.
+  - 6.2: The user's collection of avatars should not reset after the app is closed. 
+
+* As a user, I want to receive my animal fact in an easily closed pop-up screen.
+  - 7.1: Answering correctly shall display the user's avatar and a fun fact about cats.
+
