@@ -66,8 +66,8 @@ Example: “All unit tests pass with 95% coverage.”
   - The User can shall the phone's backspace button to go back to the last screen. 
   
 * UI Charts
-  - ![UI Chart](./Screenshot from 2024-10-18 16-23-08.png/)
-  - ![UI Chart](./Screenshot from 2024-10-18 16-21-26.png/)
+  - ![UI Chart](./UI2.png/)
+  - ![UI Chart](./UI1.png/)
 
 ### Requirement 2: The user shall level up and have a customizable avatar.
 - User:
@@ -78,9 +78,8 @@ Example: “All unit tests pass with 95% coverage.”
   - Avatars shall be animal themed.
   - There shall be only one avatar can be equipped at a time. 
   
-* Avatar Charts
-  - ![Avatar Chart](./Cat_Math.pdf.png/)
-  - ![Avatar Chart](./Cat_Math.pdf.png/)
+* XP and Avatar Charts
+  - ![Avatar Chart](./XPandAvatars.png/)
 
 ### Requirement 3: The user shall be able to solve math problems using the Calculator Mode. 
 - Calculation:
@@ -88,8 +87,8 @@ Example: “All unit tests pass with 95% coverage.”
   - The calculator shall display the entire equation on the screen.
   
 * Calculator Mode Charts
-  - ![Calculator Mode Chart](./Cat_Math.pdf.png/)
-  - ![Calculator Mode Chart](./Cat_Math.pdf.png/)
+  - ![Calculator Mode Chart](./CatMath-CalcMode-SwimLane.pdf/)
+  - ![Calculator Mode Chart](./CatMath-CalcMode-DataFlow.pdf/)
   
 ### Requirement 4: The user shall be able to practice in the Math Problem Mode.
 - Problem Generation:
@@ -100,8 +99,8 @@ Example: “All unit tests pass with 95% coverage.”
   - Answering correctly shall result in more XP given as well as a cat fact.
   
 * Math Problem Mode Charts
-  - ![Math Problem Mode Chart](./Cat_Math.pdf.png/)
-  - ![Math Problem Mode Chart](./Cat_Math.pdf.png/)
+  - ![Math Problem Mode Chart](./MathProblems1.png/)
+  - ![Math Problem Mode Chart](./MathProblems2.png/)
 
 ### Requirement 5: The user shall be able to challenge themself in the Math Drill Mode.
 - Timer:
@@ -113,8 +112,7 @@ Example: “All unit tests pass with 95% coverage.”
   - Entering correctly shall display the user's equipped avatar and a cat fact, as well as increase xp.
   
 * Math Drill Mode Charts
-  - ![Math Drill Mode Chart](./Cat_Math.pdf.png/)
-  - ![Math Drill Mode Chart](./Cat_Math.pdf.png/)
+  - ![Math Drill Mode Chart](./MathDrillMode.png/)
 
 
 ---
