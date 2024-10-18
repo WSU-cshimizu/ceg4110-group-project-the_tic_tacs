@@ -1,4 +1,4 @@
-#1. Design Specification for Cat Math
+# 1. Design Specification for Cat Math
 
 * Cat Math
 
