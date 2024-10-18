@@ -87,8 +87,8 @@ Example: “All unit tests pass with 95% coverage.”
   - The calculator shall display the entire equation on the screen.
   
 * Calculator Mode Charts
-  - ![Calculator Mode Chart](./CatMath-CalcMode-SwimLane.pdf/)
-  - ![Calculator Mode Chart](./CatMath-CalcMode-DataFlow.pdf/)
+  - ![Calculator Mode Chart](./CatMath-CalcMode-SwimLane.png/)
+  - ![Calculator Mode Chart](./CatMath-CalcMode-DataFlow.png/)
   
 ### Requirement 4: The user shall be able to practice in the Math Problem Mode.
 - Problem Generation:
