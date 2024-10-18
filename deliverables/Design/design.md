@@ -39,7 +39,7 @@
   - The calculator will have a array of the three most recent answers.
 ## Requirement 4: The user shall be able to practice in the Math Problem Mode.
 - Problem Generation
-  - The Math Problem mode will use procedural geneeration to create a math problem.
+  - The Math Problem mode will use procedural generation to create a math problem.
   - The math problem will be checked using the calculator functionality to ensure it is valid.
   - The problem will be stored in a string variable.
 - Answer
