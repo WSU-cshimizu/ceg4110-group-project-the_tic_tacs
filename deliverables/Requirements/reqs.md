@@ -3,6 +3,7 @@
 ## User Stories:
 ### As a user, I want to open the app and feel excited to play the games.
   * 1.1: The user interface shall be appealing to look at.
+  
    - 1.1.1: The interface shall feature large buttons and bright colors.
    - 1.1.2: Buttons shall be labeled with recognizable icons and text.
   * 1.2: The user interface shall be intuitive to navigate.
