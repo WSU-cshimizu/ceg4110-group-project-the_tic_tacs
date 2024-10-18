@@ -64,6 +64,10 @@ Example: “All unit tests pass with 95% coverage.”
   - The Game Modes screen shall have the option for Math Drill, Math Problems, and Calculator Modes.
   - The Avatars screen shall display the current XP and the selected Avatar.
   - The User can shall the phone's backspace button to go back to the last screen. 
+  
+* UI Charts
+  - ![UI Chart](./Screenshot from 2024-10-18 16-23-08.png/)
+  - ![UI Chart](./Screenshot from 2024-10-18 16-21-26.png/)
 
 ### Requirement 2: The user shall level up and have a customizable avatar.
 - User:
@@ -73,11 +77,19 @@ Example: “All unit tests pass with 95% coverage.”
 - Avatar:
   - Avatars shall be animal themed.
   - There shall be only one avatar can be equipped at a time. 
+  
+* Avatar Charts
+  - ![Avatar Chart](./Cat_Math.pdf.png/)
+  - ![Avatar Chart](./Cat_Math.pdf.png/)
 
-### Requirement 3: The user shall be able to solve math problems using the Calculator. 
+### Requirement 3: The user shall be able to solve math problems using the Calculator Mode. 
 - Calculation:
   - The calculator shall have functions for addition, subtraction, mutliplication, and division.
   - The calculator shall display the entire equation on the screen.
+  
+* Calculator Mode Charts
+  - ![Calculator Mode Chart](./Cat_Math.pdf.png/)
+  - ![Calculator Mode Chart](./Cat_Math.pdf.png/)
   
 ### Requirement 4: The user shall be able to practice in the Math Problem Mode.
 - Problem Generation:
@@ -86,6 +98,10 @@ Example: “All unit tests pass with 95% coverage.”
 - Answer:
   - Answering incorrectly shall display the correct answer, and with a slight increase in XP.
   - Answering correctly shall result in more XP given as well as a cat fact.
+  
+* Math Problem Mode Charts
+  - ![Math Problem Mode Chart](./Cat_Math.pdf.png/)
+  - ![Math Problem Mode Chart](./Cat_Math.pdf.png/)
 
 ### Requirement 5: The user shall be able to challenge themself in the Math Drill Mode.
 - Timer:
@@ -95,6 +111,10 @@ Example: “All unit tests pass with 95% coverage.”
 - Answer:
   - Entering the incorrect answer shall fail the current run, slightly increase xp, and give the correct answer.
   - Entering correctly shall display the user's equipped avatar and a cat fact, as well as increase xp.
+  
+* Math Drill Mode Charts
+  - ![Math Drill Mode Chart](./Cat_Math.pdf.png/)
+  - ![Math Drill Mode Chart](./Cat_Math.pdf.png/)
 
 
 ---
