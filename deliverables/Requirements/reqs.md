@@ -2,11 +2,11 @@
 
 ## User Stories:
 * As a user, I want to open the app and feel excited to play the games.
-  - 1.1: The user interface shall be appealing to look at.
-   - 1.1.1: The interface shall feature large buttons and bright colors.
-   - 1.1.2: Buttons shall be labeled with recognizable icons and text.
+  * 1.1: The user interface shall be appealing to look at.
+  - 1.1.1: The interface shall feature large buttons and bright colors.
+  - 1.1.2: Buttons shall be labeled with recognizable icons and text.
   - 1.2: The user interface shall be intuitive to navigate.
-   - 1.2.1: The home screen shall provide direct access to all game modes.
+  - 1.2.1: The home screen shall provide direct access to all game modes.
    - 1.2.2: Each mode button shall be easily distinguishable.
   - 1.3: The application shall display animal facts in a pop-up window upon correct answers.
    - 1.3.1: The pop-up must have a clearly labeled close button for easy dismissal.
@@ -22,7 +22,7 @@
    - 2.2.2: A progress bar showing XP toward the next level shall be included.
   - 2.3: The user shall be able to change avatars when certain XP threshholds are met.
   
- * As a user, I want to use the calculator mode to help me check my homework questions.
+* As a user, I want to use the calculator mode to help me check my homework questions.
   - 3.1: The application shall include a calculator mode that performs basic arithmetic
 operations.
   - 3.2: The calculator shall support addition, subtraction, multiplication, and division.
