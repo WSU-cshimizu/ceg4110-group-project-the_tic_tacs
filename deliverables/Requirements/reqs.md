@@ -1,6 +1,6 @@
 # Requirements Specification
 
-## User Stories:
+## User Requirements:
 ### As a user, I want to open the app and feel excited to play the games.
   * 1.1: The user interface shall be appealing to look at.
    - 1.1.1: The interface shall feature large buttons and bright colors.
@@ -48,7 +48,7 @@ subtraction.
   - 5.3: Answering incorrectly shall display the correct answer and a small increase in XP.
  
 
-## Testing Stories:
+## Testing Requirements:
 
 ### The application shall be tested to ensure that the math question mode correctly assesses answers and provides XP and animal facts.
   - 6.1 Tests shall verify that correct answers trigger XP awards and facts.
