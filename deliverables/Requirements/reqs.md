@@ -2,16 +2,16 @@
 
 ## User Requirements:
 ### As a user, I want to open the app and feel excited to play the games.
-  * 1.1: The user interface shall be appealing to look at.
+* 1.1: The user interface shall be appealing to look at.
    - 1.1.1: The interface shall feature large buttons and bright colors.
    - 1.1.2: Buttons shall be labeled with recognizable icons and text.
-  * 1.2: The user interface shall be intuitive to navigate.
-  * 1.2.1: The home screen shall provide direct access to all game modes.
+* 1.2: The user interface shall be intuitive to navigate.
+* 1.2.1: The home screen shall provide direct access to all game modes.
    - 1.2.2: Each mode button shall be easily distinguishable.
-  * 1.3: The application shall display animal facts in a pop-up window upon correct answers.
+* 1.3: The application shall display animal facts in a pop-up window upon correct answers.
    - 1.3.1: The pop-up shall have a clearly labeled close button for easy dismissal.
    - 1.3.2: The pop-up screen shall have an obvious and easy to access button to dismiss the screen.
-  * 1.4: The animal facts presented shall be educational and engaging.
+* 1.4: The animal facts presented shall be educational and engaging.
    - 1.4.1: The application shall display animal facts in a pop-up window upon correct answers.
    - 1.4.2: Facts shall be simple and suitable for the target age group.
    - 1.4.3: The facts shall focus on cats, with a few general animal facts included.
