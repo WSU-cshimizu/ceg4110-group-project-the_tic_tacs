@@ -1,6 +1,6 @@
 # Design Specification
 
-## Requirement 1: The UI shall be engaging and intuitive.
+### Requirement 1: The UI shall be engaging and intuitive.
 - Engaging User Interface
    - The user interface shall have large and colorful buttons that will clearly state their purpose, such as the "Game Modes" button, or the home button that will have a home icon.
    - The User's current level and progress will always be displayed at the bottom of each screen.
@@ -11,7 +11,7 @@
   - The Avatars screen will display the current XP and the selected Avatar.
   - The User can use the phone's backspace button to go back to the last screen. 
 
-## Requirement 2: The user shall level up and have a customizable avatar.
+### Requirement 2: The user shall level up and have a customizable avatar.
 - User
   - The user will have a dedicated class to track XP, Levels, and owned avatars.
   - The user will have an integer variable for their current level.
@@ -27,7 +27,7 @@
   - There will be a boolean variable for the avatar's equipped status.
   - Only one avatar can be equipped at a time. 
 
-## Requirement 3: The user shall be able to solve math problems using the Calculator. 
+### Requirement 3: The user shall be able to solve math problems using the Calculator. 
 - Calculation
   - The calculator will be its own class.
   - The calculator will be able to solve problems with two constants.
@@ -37,7 +37,7 @@
 - Memory
   - The calculator will store the most recent answer.
   - The calculator will have a array of the three most recent answers.
-## Requirement 4: The user shall be able to practice in the Math Problem Mode.
+### Requirement 4: The user shall be able to practice in the Math Problem Mode.
 - Problem Generation
   - The Math Problem mode will use procedural generation to create a math problem.
   - The math problem will be checked using the calculator functionality to ensure it is valid.
@@ -47,7 +47,7 @@
   - Answering incorrectly will display the correct answer, and with a slight increase in XP.
   - Answering correctly will result in more XP given as well as a cat fact.
 
-## Requirement 5: The user shall be able to challenge themself in the Math Drill Mode.
+### Requirement 5: The user shall be able to challenge themself in the Math Drill Mode.
 - Timer
   - The Math drill mode will employ similar problem generation, but with the addition of a timer.
   - The timer will start at 60 seconds and will fill back up with correct answers.
