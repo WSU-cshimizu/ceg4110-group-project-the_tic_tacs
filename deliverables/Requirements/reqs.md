@@ -51,6 +51,6 @@ subtraction.
 ## Testing Stories:
 
 * The application shall be tested to ensure that the math question mode correctly assesses answers and provides XP and animal facts.
- - 6.1 Tests shall verify that correct answers trigger XP awards and facts.
- - 6.2 The testing process shall document any discrepancies in the reward system.
+  - 6.1 Tests shall verify that correct answers trigger XP awards and facts.
+  - 6.2 The testing process shall document any discrepancies in the reward system.
 
