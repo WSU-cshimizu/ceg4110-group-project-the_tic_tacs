@@ -1,146 +1,56 @@
-#1. Design Specification for Cat Math
+# Requirements Specification
 
-* Cat Math
+## User Requirements
 
-* Version 0.1
+### As a user, I want to open the app and feel excited to play the games.
+* 1.1: The user interface shall be appealing to look at.
+   - 1.1.1: The interface shall feature large buttons and bright colors.
+   - 1.1.2: Buttons shall be labeled with recognizable icons and text.
+* 1.2: The user interface shall be intuitive to navigate.
+   - 1.2.1: The home screen shall provide direct access to all game modes.
+   - 1.2.2: Each mode button shall be easily distinguishable.
+* 1.3: The application shall display animal facts in a pop-up window upon correct answers.
+   - 1.3.1: The pop-up shall have a clearly labeled close button for easy dismissal.
+   - 1.3.2: The pop-up screen shall have an obvious and easy to access button to dismiss the screen.
+* 1.4: The animal facts presented shall be educational and engaging.
+   - 1.4.1: The application shall display animal facts in a pop-up window upon correct answers.
+   - 1.4.2: Facts shall be simple and suitable for the target age group.
+   - 1.4.3: The facts shall focus on cats, with a few general animal facts included.
 
-* Friday, 18 October 2024
-
-* Ben Hawk and Jessica Venema
-
-* Approvers: 
-
-
----
-
-## 2. Introduction
-
-* Overview:  Brief summary of the project. What is the project about?
-
-* Purpose: Why is this project necessary? What problem does it solve?
-
-* Scope: Define the boundaries—what is included and what is not.
-
-* Audience: Children in Kindergarten, 1st, and 2nd grade.
-
-
----
-
-## 3. Goals and Objectives
-
-* Primary Goal: What is the main purpose of the project?
-
-* Objectives: Break the goal into smaller, actionable objectives.
-
-* Example: “Implement user login,” “Ensure password encryption,” etc.
-
-
-Success Criteria: How will you measure success?
-Example: “All unit tests pass with 95% coverage.”
-
-
----
-
-## 4. System Overview
-
-* Architecture: Describe the high-level architecture (client-server, microservices, etc.). Use diagrams if possible.
-
-* Core Components: What major components are involved (e.g., frontend, backend, database)?
-
-* Technologies: List the programming languages, frameworks, libraries, and tools used. Example: “React for frontend, Node.js for backend, PostgreSQL for the database.”
-
-
----
-
-## 5. Functional Requirements
-
-### Requirement 1: The UI shall be engaging and intuitive.
-- Engaging User Interface:
-   - The user interface shall have large and colorful buttons that will clearly state their purpose, such as the "Game Modes" button, or the home button that will have a home icon.
-   - The User's current level and progress shall always be displayed at the bottom of each screen.
-- Intuitive:
-  - The Main Menu shall have an option for Game Modes, Avatars, and to quit.
-  - The Main Menu shall always be easily accessed by a button in each mode.
-  - The Game Modes screen shall have the option for Math Drill, Math Problems, and Calculator Mode
-  - The Avatars screen shall display the current XP and the selected Avatar.
-  - The User can shall the phone's backspace button to go back to the last screen. 
-
-### Requirement 2: The user shall level up and have a customizable avatar.
-- User:
-  - The user shall have a dedicated class to track XP, Levels, and owned avatars.
-  - The user shall have an integer variable for their current level.
-  - The user shall have an integer variable for their total accrued XP.
-  - The user shall have an integer variable for their current XP count.
-  - The user shall have an array of their owned avatars.
-  - The user shall have an avatar variable for their equipped avatar.
-  - Users shall unlock new avatars by purchasing them with their total XP, which will not decrease their level or progress to the next.
-- Avatar:
-  - Avatars shall be separated into their own class.
-  - There shall be an integer variable for the avatar's XP cost.
-  - There shall be a boolean variable for the avatar's owned status.
-  - There shall be a boolean variable for the avatar's equipped status.
-  - There shall be only one avatar can be equipped at a time. 
-
-### Requirement 3: The user shall be able to solve math problems using the Calculator. 
-- Calculation:
-  - The calculator shall be its own class.
-  - The calculator shall be able to solve problems with two constants.
-  - The calculator shall have functions for addition, subtraction, mutliplication, and division
-  - The calculator shall have a variable for each constant
-  - The calculator shall have a variable for the most recent 
-- Memory:
-  - The calculator shall store the most recent answer.
-  - The calculator shall have a array of the three most recent answers.
+### As a user, I want to earn experience points (XP) to experience both an achievement and receive an avatar.
+* 2.1: The application shall include a reward system based on XP accumulation.
+   - 2.1.1: Users shall receive XP for completing math problems and drills correctly.
+   - 2.1.2: XP shall be used to unlock special avatars in the shop.
+* 2.2: The XP system shall be visible to users at all times.
+   - 2.2.1: The home screen shall display the current XP total.
+   - 2.2.2: A progress bar showing XP toward the next level shall be included.
+* 2.3: The user shall be able to change avatars when certain XP threshholds are met.
   
-### Requirement 4: The user shall be able to practice in the Math Problem Mode.
-- Problem Generation:
-  - The Math Problem mode shall use procedural generation to create a math problem.
-  - The math problem shall be checked using the calculator functionality to ensure it is valid.
-  - The problem shall be stored in a string variable.
-- Answer:
-  - The math problem mode shall have a boolean to track if the user enters the right or wrong answer.
-  - Answering incorrectly shall display the correct answer, and with a slight increase in XP.
-  - Answering correctly shall result in more XP given as well as a cat fact.
+### As a user, I want to use the calculator mode to help me check my homework questions.
+* 3.1: The application shall include a calculator mode that performs basic arithmetic
+operations.
+* 3.2: The calculator shall support addition, subtraction, multiplication, and division.
+* 3.3: Each operation shall be accessible via clearly labeled buttons on the calculator
+interface.
+* 3.4: The calculator shall display the correct answer, a cat fact, and increase the XP.
 
-### Requirement 5: The user shall be able to challenge themself in the Math Drill Mode.
-- Timer:
-  - The Math drill mode shall employ similar problem generation, but with the addition of a timer.
-  - The timer shall start at 60 seconds.
-  - Running out of time shall end the user's run. 
-- Answer:
-  - The boolean from the Math problems mode shall also be used.
-  - Entering the incorrect answer shall fail the current run, slightly increase xp, and give the correct answer.
-  - Entering correctly shall display the user's equipped avatar and a cat fact, as well as increase xp.
+### As a user, I want to use the math problems mode to teach me addition and subtraction.
+* 4.1: The application shall offer a math problems mode focused on teaching basic arithmetic.
+   - 4.1.1: The mode shall include addition, subtraction, multiplication, and division
+questions.
+   - 4.1.2: Questions shall be generated randomly to provide varied practice.
+* 4.2: The math drill mode shall display the correct answer, a cat fact, and increase the XP.
 
+### As a user, I want to use the math drill mode to practice rapid addition and subtraction on a timer.
+* 5.1: The application shall feature a math drill mode for rapid practice of addition and
+subtraction.
+   - 5.1.1: The mode shall operate on a timer to encourage quick responses.
+* 5.2: Answering correctly shall display the user's avatar and a fun fact about cats.
+* 5.3: Answering incorrectly shall display the correct answer and a small increase in XP.
+ 
+## Testing Requirements
 
----
-
-## 6. Technical Design
-
-* Diagrams: Include flowcharts, class diagrams, sequence diagrams, or ERDs if needed.
-
-* Data Structures: List key data structures or schemas. Example: “The User object will contain ID, name, email, and password fields.”
-
-* Algorithms: Describe critical algorithms if any are needed.
-
-
----
-
-## 7. Project Plan
-
-* Timeline and Milestones: Provide key deadlines or a project schedule. Example: “Authentication feature by October 25th.”
-
-* Dependencies: List third-party libraries, tools, or systems the project relies on.
-
-
----
-
-## 8. Testing and Validation
-
-* Testing Strategy: Unit testing, integration testing, end-to-end testing, etc.
-
-* Acceptance Criteria: Define what constitutes project completion.
-
-* Tools for Testing: Mention any testing frameworks (e.g., Jest, JUnit).
-
+### The application shall be tested to ensure that the math question mode correctly assesses answers and provides XP and animal facts.
+* 6.1 Tests shall verify that correct answers trigger XP awards and facts.
+* 6.2 The testing process shall document any discrepancies in the reward system.
 
