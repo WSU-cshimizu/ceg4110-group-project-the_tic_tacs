@@ -15,9 +15,9 @@
 
 ## 2. Introduction
 
-* Overview:  Brief summary of the project. What is the project about?
+* Overview: Cat Math is an Android application for children to practice basic math skills. It features a simple and intuitive interface that kids can easily navigate. The aim of the project is to support classroom math activities at home in a fun and interactive way.
 
-* Purpose: Why is this project necessary? What problem does it solve?
+* Purpose:  Why is this project necessary? What problem does it solve?
 
 * Scope: Define the boundaries—what is included and what is not.
 
