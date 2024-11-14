@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -99,12 +100,14 @@ fun GridButtons() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp), // Ensure padding to avoid touching the edges
-            horizontalArrangement = Arrangement.SpaceEvenly
+            horizontalArrangement = Arrangement.Absolute.SpaceEvenly
         ) {
-            Button(onClick = { /* TODO: Launch Calculator */ }) {
+            Button(onClick = { /* TODO: Launch Calculator */ },
+                shape = RoundedCornerShape(8.dp)) {
                 Text(text = "Calculator")
             }
-            Button(onClick = { /* TODO: Launch Feature 2 */ }) {
+            Button(onClick = { /* TODO: Launch Feature 2 */ },
+                shape = RoundedCornerShape(8.dp)) {
                 Text(text = "Math Drill")
             }
         }
@@ -113,9 +116,10 @@ fun GridButtons() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly
+            horizontalArrangement = Arrangement.Absolute.SpaceEvenly
         ) {
-            Button(onClick = { /* TODO: Launch Feature 3 */ }) {
+            Button(onClick = { /* TODO: Launch Feature 3 */ },
+                shape = RoundedCornerShape(8.dp)) {
                 Text(text = "Math Problems")
             }
         }
