@@ -105,7 +105,7 @@ fun GridButtons() {
                 Text(text = "Calculator")
             }
             Button(onClick = { /* TODO: Launch Feature 2 */ }) {
-                Text(text = "Feature 2")
+                Text(text = "Math Drill")
             }
         }
         Spacer(modifier = Modifier.height(16.dp))
@@ -116,10 +116,7 @@ fun GridButtons() {
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             Button(onClick = { /* TODO: Launch Feature 3 */ }) {
-                Text(text = "Feature 3")
-            }
-            Button(onClick = { /* TODO: Launch Feature 4 */ }) {
-                Text(text = "Feature 4")
+                Text(text = "Math Problems")
             }
         }
     }
@@ -167,7 +164,7 @@ fun TopBarContent(username: String, xp: Int, xpMax: Int) {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name! \n Please click a button to play:",
+        text = "Hello $name! \n Please press a button to play:",
         modifier = modifier
             .fillMaxSize()
             .wrapContentSize(Alignment.TopCenter), // Centers the text
