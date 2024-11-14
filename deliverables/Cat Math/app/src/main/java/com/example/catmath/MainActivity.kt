@@ -5,19 +5,24 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.zIndex
 import com.example.catmath.ui.theme.CatMathTheme
 import com.example.catmath.R
 
@@ -25,7 +30,6 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             CatMathTheme {
                 Scaffold(
@@ -43,28 +47,84 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                 ) { innerPadding ->
-                    Box(modifier = Modifier.fillMaxSize()) {
-                        // Set the background image
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                    ) {
+                        // Background Image
                         Image(
                             painter = painterResource(id = R.drawable.cute_cat),
                             contentDescription = "Cat Background",
                             contentScale = ContentScale.Crop,
-                            modifier = Modifier.fillMaxSize()
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .zIndex(-1f)
                         )
-                        // Your greeting text on top of the image
-                        Greeting(
-                            name = "CatMaster",
-                            modifier = Modifier.padding(innerPadding)
+
+                        // Content above the background
+                        Column(
+                            modifier = Modifier
                                 .padding(innerPadding)
-                                .align(Alignment.TopCenter)
-//                                .padding(top = 16.dp)
-                        )
+                                .padding(16.dp)
+                                .fillMaxSize()
+                                .verticalScroll(rememberScrollState())
+                                .zIndex(1f),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Top
+                        ) {
+                            // Greeting text
+                            Greeting(
+                                name = "CatMaster",
+                                modifier = Modifier.padding(top = 16.dp)
+                            )
+
+                            Spacer(modifier = Modifier.height(24.dp))
+
+                            // Buttons in a grid layout
+                            GridButtons()
+                        }
                     }
                 }
             }
         }
     }
 }
+
+
+
+@Composable
+fun GridButtons() {
+    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp), // Ensure padding to avoid touching the edges
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ) {
+            Button(onClick = { /* TODO: Launch Calculator */ }) {
+                Text(text = "Calculator")
+            }
+            Button(onClick = { /* TODO: Launch Feature 2 */ }) {
+                Text(text = "Feature 2")
+            }
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ) {
+            Button(onClick = { /* TODO: Launch Feature 3 */ }) {
+                Text(text = "Feature 3")
+            }
+            Button(onClick = { /* TODO: Launch Feature 4 */ }) {
+                Text(text = "Feature 4")
+            }
+        }
+    }
+}
+
 
 @Composable
 fun TopBarContent(username: String, xp: Int, xpMax: Int) {
@@ -107,19 +167,19 @@ fun TopBarContent(username: String, xp: Int, xpMax: Int) {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = "Hello $name! \n Please click a button to play:",
         modifier = modifier
             .fillMaxSize()
-            .wrapContentSize(Alignment.Center), // Centers the text
+            .wrapContentSize(Alignment.TopCenter), // Centers the text
         style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold), // Sets font to bold
         textAlign = TextAlign.Center // Centers the text alignment
     )
 }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CatMathTheme {
-        Greeting("Android")
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun GreetingPreview() {
+//    CatMathTheme {
+//        Greeting("Android")
+//    }
+//}
