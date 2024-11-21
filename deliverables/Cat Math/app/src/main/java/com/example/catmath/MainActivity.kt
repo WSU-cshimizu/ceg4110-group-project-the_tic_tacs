@@ -158,8 +158,6 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun GridButtons() {
-        val navController = rememberNavController()
-
         Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             Row(
                 modifier = Modifier
