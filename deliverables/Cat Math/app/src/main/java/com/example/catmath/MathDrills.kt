@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import android.animation.ObjectAnimator;
+
+
 
 
 
@@ -80,5 +83,26 @@ class MathDrills: AppCompatActivity() {
         }
 
 
+
+         fun moveButtonRightToLeft(button: Button) {
+            // ObjectAnimator for a smooth move from right to left
+            val animator = ObjectAnimator.ofFloat(button, "translationX", 1000f, 0f)
+            animator.duration = 3000 // Duration of the animation in milliseconds
+            animator.repeatCount = ObjectAnimator.INFINITE // Repeat the animation infinitely
+            animator.repeatMode = ObjectAnimator.REVERSE // Make the button move back and forth
+            animator.start()
+        }
+
+        moveButtonRightToLeft(fourButton)
+        moveButtonRightToLeft(fiveButton)
+        moveButtonRightToLeft(sixButton)
+        moveButtonRightToLeft(sevenButton)
+        moveButtonRightToLeft(eightButton)
+        moveButtonRightToLeft(nineButton)
+        moveButtonRightToLeft(tenButton)
+        moveButtonRightToLeft(elevenButton)
+        moveButtonRightToLeft(twelveButton)
+        moveButtonRightToLeft(thirteenButton)
     }
+
 }
