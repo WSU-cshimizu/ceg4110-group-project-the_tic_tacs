@@ -3,7 +3,6 @@ package com.example.catmath
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -38,19 +37,30 @@ class MainActivity : ComponentActivity() {
                     topBar = {
                         TopAppBar(
                             title = {
-                                TopBarContent(
-                                    username = "CatMaster",
-                                    xp = 70,
-                                    xpMax = 100
-                                )
+                                // User Avatar and Username at the top bar
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
+                                ) {
+                                    UserAvatar(modifier = Modifier.size(40.dp))
+                                    Spacer(modifier = Modifier.width(8.dp))
+                                    UserNameText(
+                                        username = "CatMaster",
+                                        modifier = Modifier.weight(1f)
+                                    )
+                                    Spacer(modifier = Modifier.width(8.dp))
+                                    ProgressBarWithText(
+                                        currentXP = 70,
+                                        xpMax = 100
+                                    )
+                                }
                             },
                             modifier = Modifier.fillMaxWidth()
                         )
                     }
                 ) { innerPadding ->
                     Box(
-                        modifier = Modifier
-                            .fillMaxSize()
+                        modifier = Modifier.fillMaxSize()
                     ) {
                         // Background Image
                         Image(
@@ -89,98 +99,101 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
 
-
-
-@Composable
-fun GridButtons() {
-    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp), // Ensure padding to avoid touching the edges
-            horizontalArrangement = Arrangement.Absolute.SpaceEvenly
+    @Composable
+    fun GridButtons() {
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Button(onClick = { /* TODO: Launch Calculator */ },
-                shape = RoundedCornerShape(8.dp)) {
-                Text(text = "Calculator")
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp), // Ensure padding to avoid touching the edges
+                horizontalArrangement = Arrangement.Absolute.SpaceEvenly
+            ) {
+                Button(onClick = { /* TODO: Launch Calculator */ },
+                    shape = RoundedCornerShape(8.dp)) {
+                    Text(text = "Calculator")
+                }
+                Button(onClick = { /* TODO: Launch Math Drill */ },
+                    shape = RoundedCornerShape(8.dp)) {
+                    Text(text = "Math Drill")
+                }
             }
-            Button(onClick = { /* TODO: Launch Feature 2 */ },
-                shape = RoundedCornerShape(8.dp)) {
-                Text(text = "Math Drill")
-            }
-        }
-        Spacer(modifier = Modifier.height(16.dp))
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.Absolute.SpaceEvenly
-        ) {
-            Button(onClick = { /* TODO: Launch Feature 3 */ },
-                shape = RoundedCornerShape(8.dp)) {
-                Text(text = "Math Problems")
+            Spacer(modifier = Modifier.height(16.dp))
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.Absolute.SpaceEvenly
+            ) {
+                Button(onClick = { /* TODO: Launch Math Problems */ },
+                    shape = RoundedCornerShape(8.dp)) {
+                    Text(text = "Math Problems")
+                }
             }
         }
     }
-}
 
+    @Composable
+    fun ProgressBarWithText(currentXP: Int, xpMax: Int) {
+        val progress = currentXP.toFloat() / xpMax.toFloat()
 
-@Composable
-fun TopBarContent(username: String, xp: Int, xpMax: Int) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
-    ) {
-        // Profile Image
-        Image(
-            painter = painterResource(id = R.drawable.cute_boy), // Replace with your profile image
-            contentDescription = "Profile Picture",
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
             modifier = Modifier
-                .size(40.dp)
-                .clip(CircleShape),
-            contentScale = ContentScale.Crop
-        )
-
-        Spacer(modifier = Modifier.width(8.dp))
-
-        // Username and XP Info
-        Column(modifier = Modifier.weight(1f)) {
-            Text(
-                text = username,
-                style = MaterialTheme.typography.bodyLarge,
-                fontWeight = FontWeight.Bold
-            )
-
-            // XP Bar
+                .fillMaxWidth()
+                .padding(16.dp)
+        ) {
+            // ProgressBar
             LinearProgressIndicator(
-                progress = xp.toFloat() / xpMax,
+                progress = progress,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(8.dp),
                 color = MaterialTheme.colorScheme.primary
             )
+            // XP Text
+            Text(
+                text = "$currentXP / $xpMax XP",
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(top = 8.dp)
+            )
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name! \n Please press a button to play:",
-        modifier = modifier
-            .fillMaxSize()
-            .wrapContentSize(Alignment.TopCenter), // Centers the text
-        style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold), // Sets font to bold
-        textAlign = TextAlign.Center // Centers the text alignment
-    )
-}
+    @Composable
+    fun Greeting(name: String, modifier: Modifier = Modifier) {
+        Text(
+            text = "Hello $name! \n Please press a button to play:",
+            modifier = modifier
+                .fillMaxSize()
+                .wrapContentSize(Alignment.TopCenter), // Centers the text
+            style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold), // Sets font to bold
+            textAlign = TextAlign.Center // Centers the text alignment
+        )
+    }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun GreetingPreview() {
-//    CatMathTheme {
-//        Greeting("Android")
-//    }
-//}
+    @Composable
+    fun UserAvatar(modifier: Modifier = Modifier) {
+        Image(
+            painter = painterResource(id = R.drawable.cute_boy),
+            contentDescription = "User Avatar",
+            modifier = modifier
+                .clip(CircleShape), // Avatar size and shape
+            contentScale = ContentScale.Crop
+        )
+    }
+
+    @Composable
+    fun UserNameText(username: String, modifier: Modifier = Modifier) {
+        Text(
+            text = username,
+            style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Bold),
+            modifier = modifier,
+            textAlign = TextAlign.Center
+        )
+    }
+}
