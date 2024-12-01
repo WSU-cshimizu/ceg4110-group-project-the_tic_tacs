@@ -17,25 +17,25 @@ import androidx.compose.ui.zIndex
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen(currentXP: Int, onNavigateToCalculator: () -> Unit) {
+fun MainScreen(username: String, currentXP: Int, onNavigateToCalculator: () -> Unit) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
                 title = {
                     // User Avatar and Username at the top bar
-                    UserProfile(currentXP)
+                    UserProfile(username = username, currentXP = currentXP)
                 },
                 modifier = Modifier.fillMaxWidth()
             )
         }
     ) { innerPadding ->
-        MainContent(innerPadding, onNavigateToCalculator)
+        MainContent(innerPadding = innerPadding, onNavigateToCalculator = onNavigateToCalculator, username = username)
     }
 }
 
 @Composable
-fun MainContent(innerPadding: PaddingValues, onNavigateToCalculator: () -> Unit) {
+fun MainContent(innerPadding: PaddingValues, onNavigateToCalculator: () -> Unit, username: String) {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -58,7 +58,7 @@ fun MainContent(innerPadding: PaddingValues, onNavigateToCalculator: () -> Unit)
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Top
         ) {
-            Greeting(name = "CatMaster", modifier = Modifier.padding(top = 16.dp))
+            Greeting(name = username, modifier = Modifier.padding(top = 16.dp))
             Spacer(modifier = Modifier.height(24.dp))
             GridButtons(onNavigateToCalculator)
         }

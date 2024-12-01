@@ -1,30 +1,31 @@
-package com.example.catmath
-
 // CatMathApp.kt
+package com.example.catmath
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.catmath.ui.theme.CatMathTheme
 
-@OptIn(ExperimentalMaterial3Api::class)
+@ExperimentalMaterial3Api
 @Composable
-fun CatMathApp() {
+fun CatMathApp(userPreferences: UserPreferences) {
     val navController = rememberNavController()
-    val xpManager = remember { XPManager() }
 
     CatMathTheme {
         NavHost(navController = navController, startDestination = "main") {
             composable("main") {
-                MainScreen(currentXP = xpManager.getCurrentXP(), onNavigateToCalculator = { navController.navigate("calculator") })
+                MainScreen(
+                    username = userPreferences.getUsername() ?: "User",
+                    currentXP = userPreferences.getXP(),
+                    onNavigateToCalculator = { navController.navigate("calculator") }
+                )
             }
             composable("calculator") {
                 CalculatorScreen(
                     onNavigateBack = {
-                        xpManager.addXP(5)
+                        userPreferences.addXP(5)
                         navController.popBackStack()
                     }
                 )
