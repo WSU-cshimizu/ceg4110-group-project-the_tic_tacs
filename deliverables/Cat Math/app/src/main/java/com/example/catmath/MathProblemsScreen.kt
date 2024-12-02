@@ -1,5 +1,3 @@
-package com.example.catmath
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,10 +12,12 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -35,34 +35,55 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
+import com.example.catmath.MathProblemButtons
+import com.example.catmath.R
 import com.example.catmath.ui.theme.CatMathTheme
-import getRandomCatFact
 
-@ExperimentalMaterial3Api
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CalculatorScreen(onNavigateBack: () -> Unit) {
+fun MathProblemsScreen(onNavigateBack: () -> Unit, onXPAdded: (Int) -> Unit) {
     val context = LocalContext.current
-    var input by remember { mutableStateOf("") }
-    var result by remember { mutableStateOf("") }
-    val calculator = Calculator()
+    var question by remember { mutableStateOf(generateQuestion()) }
+    var userAnswer by remember { mutableStateOf("") }
     var showDialog by remember { mutableStateOf(false) }
+    var earnedXP by remember { mutableStateOf(0) }
+    var correctAnswer by remember { mutableStateOf(0) }
+    var isAnswerCorrect by remember { mutableStateOf(false) }
     var randomFact by remember { mutableStateOf(getRandomCatFact(context)) }
 
     if (showDialog) {
         AlertDialog(
-            onDismissRequest = { showDialog = false },
+            onDismissRequest = {
+                showDialog = false
+                if (!isAnswerCorrect) {
+                    question = generateQuestion() // Generate a new question after an incorrect answer
+                    userAnswer = ""
+                }
+            },
             confirmButton = {
                 TextButton(onClick = {
                     showDialog = false
-                    onNavigateBack()
+                    if (isAnswerCorrect) {
+                        question = generateQuestion() // Generate a new question after a correct answer
+                        userAnswer = ""
+                        earnedXP += 5 // Add XP for each correct answer
+                    } else {
+                        earnedXP = 0
+                    }
+                    if (isAnswerCorrect) {
+                        onXPAdded(earnedXP)
+                    }
+                    earnedXP = 0
+                    randomFact = getRandomCatFact(context)
                 }) {
                     Text("OK")
                 }
             },
-            title = { Text("Great Job!") },
+            title = { Text(if (isAnswerCorrect) "Great Job!" else "Incorrect Answer") },
             text = {
                 Column {
-                    Text("5 XP earned!")
+                    Text(if (isAnswerCorrect) "5 XP earned!" else "That answer was incorrect. The correct answer is: $correctAnswer")
                     Spacer(modifier = Modifier.height(8.dp))
                     Text("Fun Fact: $randomFact")
                 }
@@ -84,13 +105,13 @@ fun CalculatorScreen(onNavigateBack: () -> Unit) {
                         ) {
                             // Screen Title
                             Text(
-                                text = "Calculator",
+                                text = "Math Problems",
                                 style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Bold),
                                 modifier = Modifier.weight(1f)
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             // Back Button
-                            IconButton(onClick = { showDialog = true }) {
+                            IconButton(onClick = { onNavigateBack() }) {
                                 Icon(
                                     painter = painterResource(id = R.drawable.ic_back_arrow),
                                     contentDescription = "Back Button"
@@ -129,57 +150,76 @@ fun CalculatorScreen(onNavigateBack: () -> Unit) {
                 ) {
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    // Display input and result
+                    // Display the question
                     Text(
-                        text = "Input: $input",
+                        text = "Question: $question",
                         style = MaterialTheme.typography.bodyLarge,
                         modifier = Modifier.padding(8.dp)
                     )
-                    Text(
-                        text = "Result: $result",
-                        style = MaterialTheme.typography.bodyLarge,
+
+                    // Input field for user answer
+                    OutlinedTextField(
+                        value = userAnswer,
+                        onValueChange = { userAnswer = it },
+                        label = { Text("Your Answer") },
                         modifier = Modifier.padding(8.dp)
                     )
 
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    CalculatorButtons(onButtonClick = { label ->
+                    Button(onClick = {
+                        if (userAnswer.isNotEmpty()) {
+                            try {
+                                correctAnswer = evaluateQuestion(question)
+                                if (userAnswer.toInt() == correctAnswer) {
+                                    isAnswerCorrect = true
+                                    showDialog = true
+                                } else {
+                                    isAnswerCorrect = false
+                                    showDialog = true
+                                }
+                            } catch (e: Exception) {
+                                isAnswerCorrect = false
+                                showDialog = true
+                            }
+                        }
+                    }) {
+                        Text("Submit Answer")
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // Numerical Buttons for user input
+                    MathProblemButtons(onButtonClick = { label ->
                         when (label) {
-                            "=" -> {
-                                try {
-                                    val parts = input.split(" ")
-                                    if (parts.size == 3) {
-                                        val a = parts[0].toDouble()
-                                        val operator = parts[1]
-                                        val b = parts[2].toDouble()
-                                        result = when (operator) {
-                                            "+" -> calculator.add(a, b).toString()
-                                            "-" -> calculator.subtract(a, b).toString()
-                                            "×" -> calculator.multiply(a, b).toString()
-                                            "÷" -> calculator.divide(a, b).toString()
-                                            else -> "Error"
-                                        }
-                                    }
-                                } catch (e: Exception) {
-                                    result = "Error"
-                                }
-                            }
-                            "C" -> {
-                                input = ""
-                                result = ""
-                            }
-                            "⌫" -> {
-                                if (input.isNotEmpty()) {
-                                    input = input.dropLast(1)
-                                }
-                            }
-                            else -> {
-                                input += if (label in listOf("+", "-", "×", "÷")) " $label " else label
-                            }
+                            "C" -> userAnswer = ""
+                            "⌫" -> if (userAnswer.isNotEmpty()) userAnswer = userAnswer.dropLast(1)
+                            else -> userAnswer += label
                         }
                     })
                 }
             }
         }
+    }
+}
+
+
+
+fun generateQuestion(): String {
+    val a = (1..99).random()
+    val b = (1..99).random()
+    val operator = if ((0..1).random() == 0) "+" else "-"
+    return "$a $operator $b"
+}
+
+fun evaluateQuestion(question: String): Int {
+    val parts = question.split(" ")
+    val a = parts[0].toInt()
+    val operator = parts[1]
+    val b = parts[2].toInt()
+    return when (operator) {
+        "+" -> a + b
+        "-" -> a - b
+        else -> 0
     }
 }

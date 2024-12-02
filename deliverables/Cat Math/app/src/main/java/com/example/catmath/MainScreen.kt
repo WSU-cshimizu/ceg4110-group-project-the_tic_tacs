@@ -15,9 +15,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 
+@ExperimentalMaterial3Api
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen(username: String, currentXP: Int, onNavigateToCalculator: () -> Unit) {
+fun MainScreen(username: String, currentXP: Int, onNavigateToCalculator: () -> Unit, onNavigateToMathProblems: () -> Unit, onNavigateToMathDrill: () -> Unit) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
@@ -30,12 +31,12 @@ fun MainScreen(username: String, currentXP: Int, onNavigateToCalculator: () -> U
             )
         }
     ) { innerPadding ->
-        MainContent(innerPadding = innerPadding, onNavigateToCalculator = onNavigateToCalculator, username = username)
+        MainContent(innerPadding, onNavigateToCalculator, onNavigateToMathProblems, onNavigateToMathDrill, username)
     }
 }
 
 @Composable
-fun MainContent(innerPadding: PaddingValues, onNavigateToCalculator: () -> Unit, username: String) {
+fun MainContent(innerPadding: PaddingValues, onNavigateToCalculator: () -> Unit, onNavigateToMathProblems: () -> Unit, onNavigateToMathDrill: () -> Unit, username: String) {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -60,7 +61,7 @@ fun MainContent(innerPadding: PaddingValues, onNavigateToCalculator: () -> Unit,
         ) {
             Greeting(name = username, modifier = Modifier.padding(top = 16.dp))
             Spacer(modifier = Modifier.height(24.dp))
-            GridButtons(onNavigateToCalculator)
+            GridButtons(onNavigateToCalculator, onNavigateToMathProblems, onNavigateToMathDrill)
         }
     }
 }

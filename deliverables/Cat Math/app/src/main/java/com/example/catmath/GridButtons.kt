@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun GridButtons(onNavigateToCalculator: () -> Unit) {
+fun GridButtons(onNavigateToCalculator: () -> Unit, onNavigateToMathProblems: () -> Unit, onNavigateToMathDrill: () -> Unit) {
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -30,8 +30,8 @@ fun GridButtons(onNavigateToCalculator: () -> Unit) {
             Button(onClick = onNavigateToCalculator, shape = RoundedCornerShape(8.dp)) {
                 Text(text = "Calculator")
             }
-            Button(onClick = { /* TODO: Launch Math Drill */ }, shape = RoundedCornerShape(8.dp)) {
-                Text(text = "Math Drill")
+            Button(onClick = onNavigateToMathProblems, shape = RoundedCornerShape(8.dp)) {
+                Text(text = "Math Problems")
             }
         }
         Spacer(modifier = Modifier.height(16.dp))
@@ -41,8 +41,8 @@ fun GridButtons(onNavigateToCalculator: () -> Unit) {
                 .padding(horizontal = 16.dp),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            Button(onClick = { /* TODO: Launch Math Problems */ }, shape = RoundedCornerShape(8.dp)) {
-                Text(text = "Math Problems")
+            Button(onClick = onNavigateToMathDrill, shape = RoundedCornerShape(8.dp)) {
+                Text(text = "Math Drill")
             }
         }
     }
