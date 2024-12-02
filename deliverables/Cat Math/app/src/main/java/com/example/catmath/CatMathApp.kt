@@ -20,9 +20,11 @@ fun CatMathApp(userPreferences: UserPreferences) {
                 MainScreen(
                     username = userPreferences.getUsername() ?: "User",
                     currentXP = userPreferences.getXP(),
+                    currentAvatar = userPreferences.getUserAvatar(),
                     onNavigateToCalculator = { navController.navigate("calculator") },
                     onNavigateToMathProblems = { navController.navigate("math_problems") },
-                    onNavigateToMathDrill = { navController.navigate("math_drill") }
+                    onNavigateToMathDrill = { navController.navigate("math_drill") },
+                    onNavigateToAvatarSelection = { navController.navigate("avatar_selection") }
                 )
             }
             composable("calculator") {
@@ -50,6 +52,20 @@ fun CatMathApp(userPreferences: UserPreferences) {
                     },
                     onXPAdded = { xp ->
                         userPreferences.addXP(xp)
+                    }
+                )
+            }
+            composable("avatar_selection") {
+                AvatarSelectionScreen(
+                    currentXP = userPreferences.getXP(),
+                    currentAvatar = userPreferences.getUserAvatar(),
+                    onAvatarSelected = { avatarResId ->
+                        userPreferences.setUserAvatar(avatarResId)
+                        userPreferences.deductXP(50)
+                        navController.popBackStack()
+                    },
+                    onNavigateBack = {
+                        navController.popBackStack()
                     }
                 )
             }

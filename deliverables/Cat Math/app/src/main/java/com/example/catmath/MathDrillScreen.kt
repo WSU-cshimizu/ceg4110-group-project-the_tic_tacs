@@ -59,6 +59,7 @@ fun MathDrillScreen(onNavigateBack: () -> Unit, onXPAdded: (Int) -> Unit) {
     var correctAnswer by remember { mutableStateOf(0) }
     var correctCount by remember { mutableStateOf(0) }
     var randomFact by remember { mutableStateOf(getRandomCatFact(context)) }
+    var showBackDialog by remember { mutableStateOf(false) }
 
     if (showInitialDialog) {
         AlertDialog(
@@ -102,7 +103,33 @@ fun MathDrillScreen(onNavigateBack: () -> Unit, onXPAdded: (Int) -> Unit) {
         )
     }
 
-    if (!showInitialDialog && !countdownStarted) {
+    if (showBackDialog) {
+        AlertDialog(
+            onDismissRequest = { showBackDialog = false },
+            confirmButton = {
+                TextButton(onClick = {
+                    showBackDialog = false
+                    earnedXP = correctCount * 5
+                    onXPAdded(earnedXP)
+                    showInitialDialog = true // Show play again dialog after dismissing
+                    randomFact = getRandomCatFact(context)
+                }) {
+                    Text("OK")
+                }
+            },
+            title = { Text("Game Over") },
+            text = {
+                Column {
+                    Text("You answered $correctCount questions correctly!")
+                    Text("XP Earned: ${correctCount * 5}")
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text("Fun Fact: $randomFact")
+                }
+            }
+        )
+    }
+
+    if (!showInitialDialog && !countdownStarted && !showBackDialog) {
         if (timerRunning) {
             LaunchedEffect(timeRemaining) {
                 if (timeRemaining > 0) {
@@ -112,7 +139,7 @@ fun MathDrillScreen(onNavigateBack: () -> Unit, onXPAdded: (Int) -> Unit) {
                     timerRunning = false
                     earnedXP = correctCount * 5
                     onXPAdded(earnedXP)
-                    showInitialDialog = true
+                    showBackDialog = true
                     randomFact = getRandomCatFact(context)
                 }
             }
@@ -140,7 +167,7 @@ fun MathDrillScreen(onNavigateBack: () -> Unit, onXPAdded: (Int) -> Unit) {
                                 // Back Button
                                 IconButton(onClick = {
                                     timerRunning = false
-                                    onNavigateBack()
+                                    showBackDialog = true
                                 }) {
                                     Icon(
                                         painter = painterResource(id = R.drawable.ic_back_arrow),
@@ -216,14 +243,14 @@ fun MathDrillScreen(onNavigateBack: () -> Unit, onXPAdded: (Int) -> Unit) {
                                         timerRunning = false
                                         earnedXP = correctCount * 5
                                         onXPAdded(earnedXP)
-                                        showInitialDialog = true
+                                        showBackDialog = true
                                         randomFact = getRandomCatFact(context)
                                     }
                                 } catch (e: Exception) {
                                     timerRunning = false
                                     earnedXP = correctCount * 5
                                     onXPAdded(earnedXP)
-                                    showInitialDialog = true
+                                    showBackDialog = true
                                     randomFact = getRandomCatFact(context)
                                 }
                             }

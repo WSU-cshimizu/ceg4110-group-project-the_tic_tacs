@@ -4,7 +4,7 @@ package com.example.catmath
 import android.content.Context
 import android.content.SharedPreferences
 
-class UserPreferences(context: Context) {
+data class UserPreferences(val context: Context) {
     private val prefs: SharedPreferences = context.getSharedPreferences("CatMathPrefs", Context.MODE_PRIVATE)
 
     fun getUsername(): String? {
@@ -16,15 +16,24 @@ class UserPreferences(context: Context) {
     }
 
     fun getXP(): Int {
-        return prefs.getInt("currentXP", 0)
-    }
-
-    fun setXP(xp: Int) {
-        prefs.edit().putInt("currentXP", xp).apply()
+        return prefs.getInt("xp", 0)
     }
 
     fun addXP(xp: Int) {
         val currentXP = getXP()
-        setXP(currentXP + xp)
+        prefs.edit().putInt("xp", currentXP + xp).apply()
+    }
+
+    fun deductXP(xp: Int) {
+        val currentXP = getXP()
+        prefs.edit().putInt("xp", currentXP - xp).apply()
+    }
+
+    fun setUserAvatar(avatarResId: Int) {
+        prefs.edit().putInt("avatar", avatarResId).apply()
+    }
+
+    fun getUserAvatar(): Int {
+        return prefs.getInt("avatar", R.drawable.cute_boy)
     }
 }

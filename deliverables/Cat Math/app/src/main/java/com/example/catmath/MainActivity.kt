@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.platform.LocalContext
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -22,17 +23,17 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun CatMathEntryPoint(userPreferences: UserPreferences) {
-        // Using rememberSaveable ensures the username persists across configuration changes like screen rotation.
+        val context = LocalContext.current
         var username by rememberSaveable { mutableStateOf(userPreferences.getUsername()) }
 
-        if (username == null) {
-            // Show the UsernameInputScreen if username is not set
+        // Instead of conditionally displaying composables, use a state to handle the screen logic.
+        if (username.isNullOrEmpty()) {
             UsernameInputScreen(onUsernameEntered = { name ->
                 userPreferences.setUsername(name) // Save the username
                 username = name // Update state to trigger navigation to main content
             })
         } else {
-            // Username exists, so navigate to the main content
+            // Username exists, navigate to the main content
             CatMathApp(userPreferences)
         }
     }

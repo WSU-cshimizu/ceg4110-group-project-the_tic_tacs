@@ -18,14 +18,22 @@ import androidx.compose.ui.zIndex
 @ExperimentalMaterial3Api
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen(username: String, currentXP: Int, onNavigateToCalculator: () -> Unit, onNavigateToMathProblems: () -> Unit, onNavigateToMathDrill: () -> Unit) {
+fun MainScreen(
+    username: String,
+    currentXP: Int,
+    currentAvatar: Int,
+    onNavigateToCalculator: () -> Unit,
+    onNavigateToMathProblems: () -> Unit,
+    onNavigateToMathDrill: () -> Unit,
+    onNavigateToAvatarSelection: () -> Unit
+) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
                 title = {
                     // User Avatar and Username at the top bar
-                    UserProfile(username = username, currentXP = currentXP)
+                    UserProfile(username = username, currentXP = currentXP, currentAvatar = currentAvatar, onAvatarClick = onNavigateToAvatarSelection)
                 },
                 modifier = Modifier.fillMaxWidth()
             )
@@ -36,7 +44,13 @@ fun MainScreen(username: String, currentXP: Int, onNavigateToCalculator: () -> U
 }
 
 @Composable
-fun MainContent(innerPadding: PaddingValues, onNavigateToCalculator: () -> Unit, onNavigateToMathProblems: () -> Unit, onNavigateToMathDrill: () -> Unit, username: String) {
+fun MainContent(
+    innerPadding: PaddingValues,
+    onNavigateToCalculator: () -> Unit,
+    onNavigateToMathProblems: () -> Unit,
+    onNavigateToMathDrill: () -> Unit,
+    username: String
+) {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
