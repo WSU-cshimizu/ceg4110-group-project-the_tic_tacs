@@ -1,0 +1,170 @@
+/ MainActivity.kt
+package com.example.calculatorapp
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var display: TextView
+    private var equation: String = ""
+    private val facts = listOf(
+        "Cats sleep 12-16 hours a day.",
+        "Dolphins have names for each other.",
+        "A group of flamingos is called a 'flamboyance'.",
+        "Cows have best friends and feel stressed when separated.",
+        "Snails can sleep for up to three years at a time!"
+    )
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        display = findViewById(R.id.display)
+
+        // Number buttons
+        setNumberButtonListeners()
+
+        // Operator buttons
+        findViewById<Button>(R.id.btnAdd).setOnClickListener { appendToEquation("+") }
+        findViewById<Button>(R.id.btnSubtract).setOnClickListener { appendToEquation("-") }
+        findViewById<Button>(R.id.btnMultiply).setOnClickListener { appendToEquation("*") }
+        findViewById<Button>(R.id.btnDivide).setOnClickListener { appendToEquation("/") }
+
+        // Clear button
+        findViewById<Button>(R.id.btnClear).setOnClickListener {
+            equation = ""
+            display.text = "0"
+        }
+
+        // Equals button
+        findViewById<Button>(R.id.btnEquals).setOnClickListener {
+            calculateResult()
+        }
+    }
+
+    private fun setNumberButtonListeners() {
+        val buttonIds = listOf(R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
+            R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9)
+
+        buttonIds.forEach { id ->
+            findViewById<Button>(id).setOnClickListener {
+                appendToEquation((it as Button).text.toString())
+            }
+        }
+    }
+
+    private fun appendToEquation(value: String) {
+        if (equation == "0") equation = ""
+        equation += value
+        display.text = equation
+    }
+
+    private fun calculateResult() {
+        try {
+            val result = evaluateEquation(equation)
+            display.text = result.toString()
+            equation = result.toString()
+
+            // Show a random cat or animal fact after the calculation
+            showRandomFact()
+        } catch (e: Exception) {
+            display.text = "Error"
+            equation = ""
+        }
+    }
+
+    private fun evaluateEquation(equation: String): Double {
+        return when {
+            equation.contains("+") -> {
+                val parts = equation.split("+")
+                parts[0].toDouble() + parts[1].toDouble()
+            }
+            equation.contains("-") -> {
+                val parts = equation.split("-")
+                parts[0].toDouble() - parts[1].toDouble()
+            }
+            equation.contains("*") -> {
+                val parts = equation.split("*")
+                parts[0].toDouble() * parts[1].toDouble()
+            }
+            equation.contains("/") -> {
+                val parts = equation.split("/")
+                parts[0].toDouble() / parts[1].toDouble()
+            }
+            else -> equation.toDouble()
+        }
+    }
+
+    private fun showRandomFact() {
+        val randomFact = facts.random()
+        Toast.makeText(this, randomFact, Toast.LENGTH_LONG).show()
+    }
+}
+
+// activity_main.xml
+
+<!-- res/layout/activity_main.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Display for the Equation -->
+    <TextView
+        android:id="@+id/display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:padding="16dp"
+        android:text="0"
+        android:textSize="24sp" />
+
+    <!-- Button Layout -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="5"
+        android:layout_marginTop="16dp">
+
+        <!-- Number Buttons (0-9) and Operators (+, -, *, /, =, C) -->
+        <!-- For simplicity, show only 0-3 and some operators, you would add the rest similarly -->
+
+        <Button android:text="1" android:id="@+id/btn1" style="@style/CalculatorButton"/>
+        <Button android:text="2" android:id="@+id/btn2" style="@style/CalculatorButton"/>
+        <Button android:text="3" android:id="@+id/btn3" style="@style/CalculatorButton"/>
+        <Button android:text="+" android:id="@+id/btnAdd" style="@style/CalculatorButton"/>
+
+        <Button android:text="4" android:id="@+id/btn4" style="@style/CalculatorButton"/>
+        <Button android:text="5" android:id="@+id/btn5" style="@style/CalculatorButton"/>
+        <Button android:text="6" android:id="@+id/btn6" style="@style/CalculatorButton"/>
+        <Button android:text="-" android:id="@+id/btnSubtract" style="@style/CalculatorButton"/>
+
+        <Button android:text="7" android:id="@+id/btn7" style="@style/CalculatorButton"/>
+        <Button android:text="8" android:id="@+id/btn8" style="@style/CalculatorButton"/>
+        <Button android:text="9" android:id="@+id/btn9" style="@style/CalculatorButton"/>
+        <Button android:text="*" android:id="@+id/btnMultiply" style="@style/CalculatorButton"/>
+
+        <Button android:text="0" android:id="@+id/btn0" style="@style/CalculatorButton"/>
+        <Button android:text="C" android:id="@+id/btnClear" style="@style/CalculatorButton"/>
+        <Button android:text="=" android:id="@+id/btnEquals" style="@style/CalculatorButton"/>
+        <Button android:text="/" android:id="@+id/btnDivide" style="@style/CalculatorButton"/>
+    </GridLayout>
+</LinearLayout>
+
+//styling the buttons
+<!-- res/values/styles.xml -->
+<style name="CalculatorButton" parent="Widget.AppCompat.Button">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_margin">4dp</item>
+    <item name="android:layout_gravity">center</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:layout_weight">1</item>
+</style>

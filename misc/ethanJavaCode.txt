@@ -1,0 +1,118 @@
+public class XP {
+    private int currentXp;//players current xp
+    private int maxXp;//max xp at this level, if we are doing levels
+    private int level; //users current level
+
+    //Constructor
+    public XP(int currentXp, int maxXp, int level){
+        this.currentXp = currentXp;
+        this.maxXp = maxXp;
+        this.level = 1;
+    }
+
+    //Method to add xp after getting an answer correct
+    //Cheks if their current XP exceeds the max Xp for this level and levels them up if more
+    public void correctAnswerXp(int xpEarned){
+            currentXp += xpEarned; //add to the currentXp how much they earned after correct answer
+        //loop while their current XP is greater or equal to the Max at this level and level them up
+        while(currentXp >= maxXp){
+            levelup();
+        }
+    }
+
+    //Method for leveling up, calculates left over xp if there is any and increases their max XP by 20%
+    private void levelup() {
+        currentXp = currentXp - maxXp; //if there is left over xp from previous level update for new level
+        maxXp *= 1.2;//increase the maxXp by 20% per level up
+
+        level++;//increment level
+        setLevel(level);//update level after incrementing
+
+        System.out.println("Congrats you leveled up, new goal XP is: " + maxXp);
+    }
+
+    //Getters
+    public int getCurrentXp(){
+        return currentXp;
+    }
+
+    public int getMaxXp(){
+        return maxXp;
+    }
+
+    public int getLevel(){
+        return level;
+    }
+
+    //Setters
+    public void setCurrentXp(int currentXp){
+        this.currentXp = currentXp;
+    }
+
+    public void setMaxXp(int maxXp){
+        this.maxXp = maxXp;
+    }
+
+    private void setLevel(int level){
+        this.level = level;
+    }
+}
+
+package com.example.catmath;
+
+import android.content.Context;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CatFact {
+    private List<String> animalFacts; //Private list of animal facts
+    private int currentFactIdx; //current facts position
+
+    public CatFact(List<String> animalFacts, int currentFactIdx){
+        this.animalFacts = animalFacts;
+        this.currentFactIdx = currentFactIdx;
+
+    }
+
+    public String getFact(){
+        if(animalFacts != null && !animalFacts.isEmpty()){
+            String fact = animalFacts.get(currentFactIdx);
+            currentFactIdx = (currentFactIdx + 1) % animalFacts.size();//will keep going if we hit the last index(fact)
+            return fact;
+        }
+        return "No more facts :(";
+    }
+
+    public static List<String> getAllFacts(Context context){
+        List<String> catFacts = new ArrayList<>();
+
+        //getting the cat_facts file in res/raw/cat_facts.txt
+        InputStream input = context.getResources().openRawResource(R.raw.cat_facts);
+        BufferedReader br = new BufferedReader(new InputStreamReader(input));
+        String line;
+
+        try{
+            while((line = br.readLine()) != null){
+                catFacts.add(line);//getting every fact from txt file
+            }
+        } catch(IOException e){
+            e.printStackTrace();
+        }finally{
+            try {
+                br.close();//close reader after everything is done
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return catFacts; //return arraylist if everything went to plan
+    }
+}
+
+

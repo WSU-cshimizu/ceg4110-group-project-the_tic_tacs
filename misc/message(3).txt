@@ -1,0 +1,236 @@
+package com.example.catmath
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.zIndex
+import com.example.catmath.ui.theme.CatMathTheme
+
+class MainActivity : ComponentActivity() {
+    private lateinit var xp: XP
+
+    //Mutable XP variables so they can be updated easily
+    private val XpStatus = mutableStateOf(0)
+    private val maxXpStatus = mutableStateOf(1000)
+    private val levelStatus = mutableStateOf(1)
+
+
+    @OptIn(ExperimentalMaterial3Api::class)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        xp = XP(0, 1000, 1)
+        setContent {
+            CatMathTheme {
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    topBar = {
+                        TopAppBar(
+                            title = {
+                                ProgressBarWithText(
+                                    currentXP = XpStatus.value,
+                                    xpMax = maxXpStatus.value,
+                                    level = levelStatus.value
+                                )
+                            },
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                    }
+                ) { innerPadding ->
+                    Box(modifier = Modifier.fillMaxSize()) {
+                        // Set the background image
+                        Image(
+                            painter = painterResource(id = R.drawable.cute_cat),
+                            contentDescription = "Cat Background",
+                            contentScale = ContentScale.Crop,
+                            modifier = Modifier.fillMaxSize()
+                        )
+
+                        UserAvatar()
+
+                        UserNameText(username = "Users Name")
+
+                        // Buttons below the greeting text
+                        Column(
+                            modifier = Modifier
+                                .padding(innerPadding)
+                                .padding(16.dp)
+                                .fillMaxSize()
+                                .verticalScroll(rememberScrollState())
+                                .zIndex(1f),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Top
+                        ) {
+                            // Your greeting text on top of the image
+                            Greeting(
+                                name = "Please choose a game:",
+                                modifier = Modifier
+                                    .padding(innerPadding)
+                                    .padding(innerPadding)
+                                    //.align(Alignment.TopCenter)
+                            )
+
+                            Spacer(modifier = Modifier.height(20.dp)) // Space to align below other elements
+                            GridButtons()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //Method for updating the UI with XP and Level
+    private fun answerCorrect(xpEarned: Int){
+        xp.correctAnswerXp(xpEarned)
+
+        //update the UI with new Xp, MaxXp, and Level
+        XpStatus.value = xp.currentXp
+        maxXpStatus.value = xp.maxXp
+        levelStatus.value = xp.level
+    }
+
+    @Composable
+    fun ProgressBarWithText(currentXP: Int, xpMax: Int, level: Int) {
+        val progress = currentXP.toFloat() / xpMax.toFloat()
+
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier.fillMaxWidth().padding(16.dp)
+        ) {
+            // ProgressBar
+            LinearProgressIndicator(
+                progress = progress,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(8.dp),
+                color = MaterialTheme.colorScheme.primary
+            )
+            // XP Text
+            Text(
+                text = "$currentXP / $xpMax XP",
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(top = 8.dp)
+            )
+            // Level Text
+            Text(
+                text = "Level: $level", // Display level
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(top = 4.dp)
+            )
+        }
+    }
+
+    @Composable
+    fun Greeting(name: String, modifier: Modifier = Modifier) {
+        Text(
+            text = "$name",
+            modifier = modifier
+                .fillMaxSize()
+                .wrapContentSize(Alignment.TopCenter), // Centers the text
+            style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold), // Sets font to bold
+            textAlign = TextAlign.Center // Centers the text alignment
+        )
+    }
+
+    @Composable
+    fun UserAvatar() {
+        Box(
+            modifier = Modifier
+                .size(150.dp) // Size of the avatar box
+                .padding(top = 65.dp)
+                .wrapContentSize(Alignment.TopCenter) // Align the image to the top center of the screen
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.cute_boy),
+                contentDescription = "User Avatar",
+                modifier = Modifier
+                    .size(100.dp) // Avatar size
+                    .clip(CircleShape)
+                    .align(Alignment.Center), // Center the image within the Box
+                contentScale = ContentScale.Crop
+            )
+        }
+    }
+
+    @Composable
+    fun UserNameText(username: String) {
+        Text(
+            text = username,
+            style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
+            modifier = Modifier
+                .absolutePadding(left = 30.dp, top = 90.dp)
+                .fillMaxWidth(),
+            textAlign = TextAlign.Center
+        )
+    }
+
+    @Composable
+    fun GridButtons() {
+        Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp), // Ensure padding to avoid touching the edges
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                Button(
+                    onClick = { /* TODO: Launch Calculator */ },
+                    shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF2196F3), // Blue color for Calculator
+                        contentColor = Color.White
+                    )
+                ) {
+                    Text(text = "Calculator")
+                }
+                Button(
+                    onClick = { /* TODO: Launch Feature 2 */ },
+                    shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFFFF5722), // Orange color for Math Drill
+                        contentColor = Color.White
+                    )
+                ) {
+                    Text(text = "Math Drill")
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                Button(
+                    onClick = { /* TODO: Launch Feature 3 */ },
+                    shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF4CAF50), // Green color for Math Problems
+                        contentColor = Color.White
+                    )
+                ) {
+                    Text(text = "Math Problems")
+                }
+            }
+        }
+    }
+}
