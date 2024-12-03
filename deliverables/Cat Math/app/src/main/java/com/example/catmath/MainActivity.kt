@@ -1,3 +1,8 @@
+//THIS ENTIRE PROJECT WAS WRITTEN WITH THE HELP OF CHATGPT. I JUST WANT TO GET THAT OUT THERE
+//RIGHT OFF THE BAT.
+// Authors: Jessica, Ethan, Ben, Abit, and Lilliane from The_Tic_Tacs
+// This is an Android app for a kids learning game.
+//
 // MainActivity.kt
 package com.example.catmath
 
