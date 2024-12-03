@@ -17,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -25,11 +26,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.delay
 
 @ExperimentalMaterial3Api
 @Composable
 fun AvatarSelectionScreen(currentXP: Int, currentAvatar: Int, onAvatarSelected: (Int) -> Unit, onNavigateBack: () -> Unit) {
     var selectedAvatar by remember { mutableStateOf(currentAvatar) }
+    var saveClicked by remember { mutableStateOf(false) }
 
     if (currentXP < 50) {
         AlertDialog(
@@ -80,11 +83,20 @@ fun AvatarSelectionScreen(currentXP: Int, currentAvatar: Int, onAvatarSelected: 
                 Spacer(modifier = Modifier.height(24.dp))
 
                 Button(onClick = {
-                    // Ensure state update happens correctly before navigating back
-                    onAvatarSelected(selectedAvatar)
-                    onNavigateBack()
+                    if (selectedAvatar != currentAvatar && currentXP >= 50) {
+                        onAvatarSelected(selectedAvatar)
+                        saveClicked = true
+                    }
                 }) {
                     Text("Save and Continue")
+                }
+
+                // Trigger navigation back only if the save was clicked and avatar update is completed
+                if (saveClicked) {
+                    // Wait for composable recomposition
+                    LaunchedEffect(Unit) {
+                        onNavigateBack()
+                    }
                 }
             }
         }
