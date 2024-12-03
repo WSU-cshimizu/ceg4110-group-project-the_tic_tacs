@@ -1,4 +1,4 @@
-#What went well in the group?
+# What went well in the group?
 
 * Our group demonstrated strong collaboration and communication throughout the project . We consistently supported each other and ensured tasks were divided fairly according to individual strengths with consistent progress on project milestones. Regular meetings helped keep everyone on track, and there was a strong commitment to delivering quality work as there was a supportive team environment. We were able to resolve any challenges that arose quickly and effectively, ensuring smooth progress throughout the project as there was clear vision of responsibilities.
 
